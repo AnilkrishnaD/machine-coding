@@ -1,0 +1,151 @@
+$form-input-bg: #ffffff
+$form-input-fg: #000000
+$primary: #f97575
+
+$font: sans-serif
+$s: 1rem !default
+
+@mixin reset
+  margin: 0
+  padding: 0
+  border-radius: 0
+  outline: none
+  list-style: none
+  border: 1px transparent solid
+  vertical-align: baseline
+  *vertical-align: middle
+
+$form-input-bg: $form-input-bg
+$form-input-fg: $form-input-fg
+$brand-color: $primary
+$button-border: transparent
+$button-focus-border: transparent
+$form-input-font-weight: 600 !default
+$form-input-font: $font
+$form-input-font-size: 0.8rem !default
+$form-input-border: rgba($form-input-fg, 0.2) !default
+$form-input-border-focus: rgba(blue, 0.5) !default
+$form-input-padding: $s/2 !default
+
+@mixin form-input
+  @include reset
+  // @include theme($form-input-bg, $form-input-fg)
+  font-family: $form-input-font
+  font-size: $form-input-font-size
+  font-weight: $form-input-font-weight
+  appearance: none
+  background: $form-input-bg
+  border-width: 1px
+  border-radius: 0
+  border-color: $form-input-border !important
+  color: inherit
+  margin: $s/4 0
+  height: 2.4rem
+  padding: 0.35rem 0.5rem
+  font-size: 1em
+  outline: 0
+  box-shadow: none
+  &:focus
+    border-color: $form-input-border-focus !important
+  &:focus::placeholder
+    color: transparent
+    transition: all 0.3s
+
+input::placeholder
+  font-weight: 500
+  font-size: 0.8rem
+
+input:required
+  border-color: red
+
+input[type='text'],
+  border-radius: unset !important
+
+input[type='date'],
+input[type='datetime'],
+input[type='text'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='tel'],
+input[type='time'],
+input[type='url'],
+input[type='week'],
+input[type='search'],
+input[type='file']
+  @include form-input
+  padding: $form-input-padding !important
+  font-weight: $form-input-font-weight !important
+
+input[type='button'],
+input[type='reset'],
+input[type='submit'],
+input[type='image'],
+  @include reset
+  @include form-input
+  font-family: $action-font
+  border-color: $button-border
+  cursor: pointer
+  background: $primary
+  color: $form-input-bg
+  > *
+    color: inherit !important
+
+
+select
+  @include form-input
+  padding: $form-input-padding !important
+  font-weight: $form-input-font-weight
+
+*[contenteditable]
+  @include form-input
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus
+  border: 1px solid $form-input-fg
+  -webkit-text-fill-color: $form-input-fg
+  -webkit-box-shadow: 0 0 0px 1000px rgba($neutral, 0.2) inset
+  transition: background-color 5000s ease-in-out 0s
+
+
+textarea
+  @include form-input
+  height: 5rem
+  width: 100%
+
+input[type='checkbox'],
+input[type='radio']
+  margin-right: $s/4
+
+h1, h2, h3, h4, h5, h6, p
+  input[type='date'],
+  input[type='datetime'],
+  input[type='email'],
+  input[type='month'],
+  input[type='number'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='time'],
+  input[type='url'],
+  input[type='week'],
+  input[type='search'],
+  input[type='file'],
+  select,
+  textarea
+    font-weight: inherit !important
+    font-size: inherit !important
+    line-height: inherit !important
+    flex: 1
+
+select
+  padding-top: $s*2
+  option

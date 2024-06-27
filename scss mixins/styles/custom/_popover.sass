@@ -1,0 +1,30 @@
+.show-from-left-enter-active, .show-from-left-leave-active
+  transition: transform 1s, opacity 0.7s
+
+.show-from-left-enter, .show-from-left-leave-to
+  opacity: 0
+  transform: translate(-20px)
+
+// Show-from-right transition
+.show-from-right-enter-active, .show-from-right-leave-active
+  transition: transform 1s, opacity 0.7s
+
+.show-from-right-enter, .show-from-right-leave-to
+  opacity: 0
+  transform: translate(20px)
+
+// Pop-out transition
+.pop-out-enter-active, .pop-out-leave-active
+  transition: transform 1.5s, opacity 2s
+//  transform-origin: center
+
+.pop-out-enter, .pop-out-leave-to
+  opacity: 0
+  transform: rotate(720deg) translate(0, 120px)
+
+div[data-popover="tooltip"]
+  background: #444
+  color: #f9f9f9
+  font-size: 12px
+  line-height: 1.5
+  margin: 5px

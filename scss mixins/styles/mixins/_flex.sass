@@ -1,0 +1,27 @@
+@mixin flex($align: center, $justify: space-between)
+  display: flex
+  align-items: $align
+  justify-content: $justify
+
+@mixin reflex($breakpoint)
+  @media (min-width: $breakpoint)
+    @include flex
+
+@mixin stack-l($align: center)
+  @include flex($align, flex-start)
+
+@mixin stack-r($align: center)
+  @include flex($align, flex-end)
+
+@mixin stack($align: center)  
+  @include flex($align, center)
+
+@mixin spread($align: center)
+  @include flex($align)
+
+@mixin stretch($align: stretch, $justify: stretch)
+  @include flex($align, $justify)
+
+@mixin distribute($align: center, $justify: space-between)
+  @include flex($align, space-around)
+

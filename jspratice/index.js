@@ -84,11 +84,11 @@ function sum(a) {
     if (b === undefined) {
       return a;
     }
-    return sum(a * b);
+    return sum(a + b);
   };
 }
 
-// console.log(sum(12)(-12)());
+// onsole.log(sum(12)(12)(), "currying");
 // array flatning
 const flatarray = [1, 2, [3, 4], [5, 6, [7, 8]]];
 
@@ -135,12 +135,12 @@ function main() {
     })
     .then((age) => {
       const drink = age < 10 ? "milk" : "coke";
-      console.log(`Have a ${drink}.`);
+      //console.log(`Have a ${drink}.`);
       const child = age < 10;
       return child;
     })
     .catch((e) => {
-      console.log(e);
+      // console.log(e);
     });
 }
 
@@ -161,6 +161,7 @@ function multiplyFour(number) {
 
 const compose = (...functions) => {
   return (args) => {
+    console.log(functions, args);
     // left to right  => reduce
     return functions.reduce((arg, fn) => fn(arg), args);
     // right to left => reduceRight
@@ -168,7 +169,7 @@ const compose = (...functions) => {
   };
 };
 const evaluate = compose(addThree, substractFour, multiplyFour);
-// console.log(evaluate(10));
+console.log(evaluate(10));
 
 // object iteration
 
@@ -257,3 +258,30 @@ Promise.allSettled([Promise.resolve(" 1"), Promise.reject("Step2")])
     console.log(e);
     console.error(Object.keys(e));
   });
+
+const data = [
+  {
+    name: "NmmeA",
+    count: 2,
+  },
+  {
+    name: "NmmeB",
+    count: 4,
+  },
+  {
+    name: "NmmeC",
+    count: 0,
+  },
+  {
+    name: "NmmeD",
+    count: 1,
+  },
+  {
+    name: "NmmeE",
+    count: -5,
+  },
+  {
+    name: "NmmeF",
+    count: 12,
+  },
+];

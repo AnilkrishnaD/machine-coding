@@ -1,0 +1,2 @@
+@mixin shadow($level: 1)
+  box-shadow: 0 0 $level*2px $level*1px rgba(mix($shadow-color, $white, percentage(10*$level) / 100), 0.5)
